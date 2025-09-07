@@ -17,14 +17,20 @@ A ATM with a React + Vite frontend and Express backend, using memory for storage
 
 ## Setup & Local Development
 
-1. Install dependencies
-   `npm install`
+1. Start backend
 
-2. Start backend
-   `cd api && npm run start`
+   ```
+   $ cd api
+   $ npm install
+   $ npm run start
+   ```
 
-3. Start frontend
-   `cd web && npm run start`
+2. Start frontend
+   ```
+   $ cd web
+   $ npm install
+   $ npm run start
+   ```
 
 ## Testable user data
 
