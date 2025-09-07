@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { ATMButtonLayout } from "../ATMButtonLayout";
 import { ScreenType } from "../InteractiveScreen";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { LoadingSpinner } from "../../../../core/LoadingSpinner";
 import { useWithdraw } from "./hooks";
 import { useUserContext } from "../../UserContext";
@@ -28,6 +28,7 @@ export const WithdrawScreen = ({
     control,
     formState: { errors },
   } = useForm<WithdrawInput>();
+  const inputRef = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState(DEFAULT_MESSAGE);
   const { withdraw, loading } = useWithdraw();
   const { userContext } = useUserContext();
@@ -35,6 +36,10 @@ export const WithdrawScreen = ({
     setCurrentScreen("welcome");
     return;
   }
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   useEffect(() => {
     if (errors.withdrawAmountDollars?.message) {
@@ -83,7 +88,12 @@ export const WithdrawScreen = ({
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <h2 className="mb-2 overflow-hidden">{message}</h2>
-      <Input name="withdrawAmountDollars" control={control} isCurrency />
+      <Input
+        name="withdrawAmountDollars"
+        control={control}
+        isCurrency
+        ref={inputRef}
+      />
       <div className="mt-2">{loading && <LoadingSpinner />}</div>
       <ATMButtonLayout buttonMapping={buttonMapping} />
     </form>

@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { ButtonConfig } from "../../../../../types";
 import { useVerifyPIN } from "./hooks";
 import { AxiosError } from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useUserContext } from "../../UserContext";
 
 type PinInput = {
@@ -24,9 +24,14 @@ export const PINScreen = ({
     handleSubmit,
     formState: { errors },
   } = useForm<PinInput>();
+  const inputRef = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState(DEFAULT_MESSAGE);
   const { verifyPIN, loading } = useVerifyPIN();
   const { setUserContext } = useUserContext();
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   useEffect(() => {
     if (errors.pin?.message) {
@@ -83,7 +88,7 @@ export const PINScreen = ({
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2 className="mb-2">{message}</h2>
-        <Input name="pin" control={control} maxLength={4} />
+        <Input name="pin" control={control} maxLength={4} ref={inputRef} />
         <div className="mt-2">{loading && <LoadingSpinner />}</div>
         <ATMButtonLayout buttonMapping={buttonMapping} />
       </form>

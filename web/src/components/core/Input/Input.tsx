@@ -6,11 +6,13 @@ export const Input = ({
   name,
   isCurrency,
   maxLength,
+  ref,
 }: {
   control: Control<any>;
   name: string;
   isCurrency?: boolean;
   maxLength?: number;
+  ref?: React.Ref<HTMLInputElement>;
 }) => {
   const currencyProps = isCurrency
     ? {
@@ -32,6 +34,7 @@ export const Input = ({
           maxLength={maxLength}
           autoComplete="off"
           className="bg-gray-100 text-black w-32"
+          getInputRef={ref}
           onValueChange={(values) => {
             field.onChange(values.floatValue ?? "");
           }}

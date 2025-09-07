@@ -12,7 +12,7 @@ export const ATMButtonLayout = ({
   return (
     <>
       {/* left side buttons */}
-      <div className="absolute left-0 top-0 translate-x-[-60px] h-full flex-1 flex flex-col gap-2 justify-end pb-2">
+      <div className="absolute left-0 top-0 translate-x-[-60px] h-full flex-1 flex flex-col gap-2 justify-end pb-2 z-10">
         {leftSideButtons.map((buttonObj, index) => {
           return (
             <ATMButton
@@ -26,7 +26,7 @@ export const ATMButtonLayout = ({
         })}
       </div>
       {/* right side buttons */}
-      <div className="absolute right-0 top-0 translate-x-[60px] h-full flex-1 flex flex-col gap-2 justify-end items-end pb-2">
+      <div className="absolute right-0 top-0 translate-x-[60px] h-full flex-1 flex flex-col gap-2 justify-end items-end pb-2 z-10">
         {rightSideButtons.map((buttonObj, index) => {
           return (
             <ATMButton
