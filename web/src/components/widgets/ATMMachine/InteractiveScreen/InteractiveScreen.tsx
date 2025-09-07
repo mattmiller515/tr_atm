@@ -15,8 +15,7 @@ export type ScreenType =
   | "pin";
 
 export const InteractiveScreen = () => {
-  //TODO - update default screen to welcome
-  const [currentScreen, setCurrentScreen] = useState<ScreenType>("pin");
+  const [currentScreen, setCurrentScreen] = useState<ScreenType>("welcome");
 
   const screenMapping: Record<ScreenType, ReactNode> = {
     welcome: <WelcomeScreen setCurrentScreen={setCurrentScreen} />,
