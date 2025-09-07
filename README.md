@@ -26,6 +26,7 @@ A ATM with a React + Vite frontend and Express backend, using memory for storage
    ```
 
 2. Start frontend
+
    ```
    $ cd web
    $ npm install
