@@ -25,3 +25,40 @@ A ATM with a React + Vite frontend and Express backend, using memory for storage
 
 3. Start frontend
    `cd web && npm run start`
+
+## Testable user data
+
+### User 1
+
+Name: John Doe
+PIN: 1111
+Card Type: Star
+Balance: $10.00
+
+### User 2
+
+Name: Jane Smith
+PIN: 2222
+Card Type: Pulse
+Balance: $53.21
+
+### User 3
+
+Name: Alice Johnson
+PIN: 3333
+Card Type: MasterCard
+Balance: $0.00
+
+### User 4
+
+Name: Bob Brown
+PIN: 4444
+Card Type: Plus
+Balance: $9,999.99
+
+### User 5
+
+Name: Charlie Davis
+PIN: 5555
+Card Type: Visa
+Balance: $0.01
