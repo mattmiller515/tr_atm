@@ -1,5 +1,4 @@
 import { Response, Request } from "express";
-import { pinService } from "../services/pinService";
 import { AppError } from "../tools/error";
 import { balanceService } from "../services/balanceService";
 
@@ -66,6 +65,18 @@ class BalanceController {
   };
 
   resetAllBalances = (req: Request, res: Response) => {
+    balanceService.resetAllBalances();
+    res.status(200).json({ message: "All balances have been reset." });
+  };
+
+  cronResetAllBalances = (req: Request, res: Response) => {
+    const authHeader = req.header("Authorization");
+    const cronSecret = process.env.CRON_SECRET;
+
+    if (!cronSecret || authHeader !== `Bearer ${cronSecret}`) {
+      return res.status(401).end("Unauthorized");
+    }
+
     balanceService.resetAllBalances();
     res.status(200).json({ message: "All balances have been reset." });
   };

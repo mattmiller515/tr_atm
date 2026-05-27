@@ -3,6 +3,7 @@ import { balanceController } from "../controllers/balanceController";
 
 const router = express.Router();
 
+router.get("/cron-reset", balanceController.cronResetAllBalances);
 router.get("/:userId", balanceController.getUserBalance);
 router.post("/:userId/deposit", balanceController.depositToBalance);
 router.post("/:userId/withdraw", balanceController.withdrawFromBalance);
