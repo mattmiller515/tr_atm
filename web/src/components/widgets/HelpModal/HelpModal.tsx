@@ -31,11 +31,11 @@ export const HelpModal = () => {
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} title="Help">
         <p className="font-semibold">Available PINs:</p>
         <ul>
-          <li>1111 - John Doe</li>
-          <li>2222 - Jane Smith</li>
-          <li>3333 - Alice Johnson</li>
-          <li>4444 - Bob Brown</li>
-          <li>5555 - Charlie Davis</li>
+          <li>1111 - John Doe - $10.00</li>
+          <li>2222 - Jane Smith - $53.21</li>
+          <li>3333 - Alice Johnson - $0.00</li>
+          <li>4444 - Bob Brown - $9,999.99</li>
+          <li>5555 - Charlie Davis - $0.01</li>
         </ul>
         <p className="font-semibold mt-4">About the project:</p>
         <p>

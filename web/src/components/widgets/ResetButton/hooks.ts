@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { flushSync } from "react-dom";
 import { api } from "../../../tools/api";
 import { AxiosError, AxiosResponse } from "axios";
 
