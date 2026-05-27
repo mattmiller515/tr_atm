@@ -14,6 +14,10 @@ declare type BalanceResponse = {
   userBalanceCents: number;
 };
 
+declare type ResetBalancesResponse = {
+  message: string;
+};
+
 declare type CardType =
   | "star"
   | "pulse"

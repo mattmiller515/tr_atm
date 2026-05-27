@@ -64,6 +64,11 @@ class BalanceController {
 
     res.status(200).json(response);
   };
+
+  resetAllBalances = (req: Request, res: Response) => {
+    balanceService.resetAllBalances();
+    res.status(200).json({ message: "All balances have been reset." });
+  };
 }
 
 export const balanceController = new BalanceController();

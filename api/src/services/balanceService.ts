@@ -1,4 +1,4 @@
-import { balanceDB } from "../models/balance";
+import { balanceDB, startingBalances } from "../models/balance";
 import { AppError } from "../tools/error";
 
 class BalanceService {
@@ -60,6 +60,18 @@ class BalanceService {
     balanceCentsRecord.balanceCents -= amountCents;
 
     return balanceCentsRecord.balanceCents;
+  };
+
+  resetAllBalances = () => {
+    const startingBalanceByUserId = new Map(
+      startingBalances.map((starting) => [starting.userId, starting.balanceCents])
+    );
+    balanceDB.forEach((balance) => {
+      const startingBalanceCents = startingBalanceByUserId.get(balance.userId);
+      if (startingBalanceCents !== undefined) {
+        balance.balanceCents = startingBalanceCents;
+      }
+    });
   };
 }
 
