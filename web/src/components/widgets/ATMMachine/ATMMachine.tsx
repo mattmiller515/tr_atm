@@ -1,15 +1,19 @@
 import { CardSelector } from "./CardSelector";
 import { InteractiveScreen } from "./InteractiveScreen";
 import { UserProvider } from "./UserContext";
+import atmSignSrc from "../../../assets/atm_sign.png";
+import graffitiSrc from "../../../assets/graffiti.png";
+import stickerGrafSrc from "../../../assets/sticker_graf.png";
+import systemsSrc from "../../../assets/systems.png";
 
 export const ATMMachine = () => {
   return (
     <UserProvider>
       <div className="h-full flex flex-col items-center">
         <div className="w-lg rounded-xl bg-[#136cae] flex justify-center p-4 relative">
-          <img src="src/assets/atm_sign.png"></img>
+          <img src={atmSignSrc}></img>
           <img
-            src="src/assets/graffiti.png"
+            src={graffitiSrc}
             className="absolute top-7 right-17"
           ></img>
         </div>
@@ -19,12 +23,12 @@ export const ATMMachine = () => {
           <div className="mt-4 mb-2 relative">
             <InteractiveScreen />
             <img
-              src="src/assets/sticker_graf.png"
+              src={stickerGrafSrc}
               className="absolute top-60 left-7"
             ></img>
           </div>
           <div className="w-xs mx-auto">
-            <img src="src/assets/systems.png" className="ml-auto"></img>
+            <img src={systemsSrc} className="ml-auto"></img>
           </div>
         </div>
       </div>
