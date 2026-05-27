@@ -6,8 +6,8 @@ import { balanceService } from "../services/balanceService";
 class BalanceController {
   getUserBalance = (req: Request, res: Response) => {
     const userId = req.params.userId;
-    if (!userId) {
-      throw new AppError(400, "userId is required.");
+    if (typeof userId !== "string") {
+      throw new AppError(400, "userId must be a string.");
     }
 
     const userBalanceCents = balanceService.getUserBalance({ userId });
@@ -21,8 +21,8 @@ class BalanceController {
   depositToBalance = (req: Request, res: Response) => {
     const userId = req.params.userId;
     const amountCents: number | null | undefined = req.body.amountCents;
-    if (!userId) {
-      throw new AppError(400, "userId is required.");
+    if (typeof userId !== "string") {
+      throw new AppError(400, "userId must be a string.");
     }
     if (amountCents === null || amountCents === undefined) {
       throw new AppError(400, "amountCents is required.");
@@ -43,8 +43,8 @@ class BalanceController {
   withdrawFromBalance = (req: Request, res: Response) => {
     const userId = req.params.userId;
     const amountCents: number | null | undefined = req.body.amountCents;
-    if (!userId) {
-      throw new AppError(400, "userId is required.");
+    if (typeof userId !== "string") {
+      throw new AppError(400, "userId must be a string.");
     }
     if (amountCents === null || amountCents === undefined) {
       throw new AppError(400, "amountCents is required.");

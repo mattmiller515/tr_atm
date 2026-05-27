@@ -5,8 +5,8 @@ import { AppError } from "../tools/error";
 class CardController {
   getUserCard = (req: Request, res: Response) => {
     const userId = req.params.userId;
-    if (!userId) {
-      throw new AppError(400, "userId is required.");
+    if (typeof userId !== "string") {
+      throw new AppError(400, "userId must be a string.");
     }
 
     const cardInfo = cardService.getCardInfo({
