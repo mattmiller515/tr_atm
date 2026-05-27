@@ -5,7 +5,7 @@ import { ResetButton } from "../../widgets/ResetButton";
 export const HomePage = () => {
   return (
     <div className="relative h-full bg-violet-300 overflow-hidden">
-      <div className="absolute top-6 right-6 flex flex-col gap-4 items-center">
+      <div className="absolute top-4 right-6 flex gap-4 items-center">
         <HelpModal />
         <ResetButton />
       </div>
