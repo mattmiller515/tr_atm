@@ -23,7 +23,7 @@ export const HelpModal = () => {
           type="button"
           onClick={() => setIsOpen(true)}
           aria-label="Help"
-          className="relative w-10 h-10 font-sans rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 hover:cursor-pointer flex items-center justify-center text-sm font-semibold"
+          className="relative w-10 h-10 font-sans rounded-full bg-gray-200 text-gray-700 border-gray-400 border-2 hover:bg-gray-300 hover:cursor-pointer flex items-center justify-center text-sm font-semibold"
         >
           ?
         </button>
