@@ -39,13 +39,17 @@ export const HelpModal = () => {
         </ul>
         <p className="font-semibold mt-4">About the project:</p>
         <p>
-          This is a simple ATM machine that allows you to withdraw and deposit money. 
+          This is a simple ATM machine that allows you to withdraw and deposit
+          money.
         </p>
         <p className="mt-2">
-        The project is built with React and Express. The React frontend is
-          built with Vite. The Express backend is built with Express. The
-          data (funds) is held in memory and is the same for all users. 
-          You can reset the data to its default values by clicking the reset button.
+          The project is built with React and Express. The React frontend is
+          built with Vite. The Express backend is built with Express. The data
+          (funds) is held in memory and is the same for all users. You can reset
+          the data to its default values by clicking the reset button.
+        </p>
+        <p className="mt-2">
+          The data is reset every day at 6:00 AM UTC via a cron job.
         </p>
       </Modal>
     </>
