@@ -19,16 +19,14 @@ export const useResetBalances = ({
       const response: AxiosResponse<ResetBalancesResponse> =
         await api.post("/balance/reset");
       setMessage(response.data.message);
-      // Commit loading=false before the callback so any synchronous work in
-      // it (e.g. window.alert) doesn't block while the spinner is still shown.
-      flushSync(() => setLoading(false));
       onSuccess?.(response);
       return response.data;
     } catch (error) {
       const axiosError = error as AxiosError<ErrorResponse>;
       setMessage(axiosError.response?.data?.message || "Something went wrong.");
-      flushSync(() => setLoading(false));
       onError?.(axiosError);
+    } finally {
+      setLoading(false);
     }
   };
 
