@@ -29,7 +29,8 @@ export const HelpModal = () => {
         </button>
       </div>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} title="Help">
-        <p className="font-semibold">Available PINs:</p>
+        <p className="font-semibold">Available PINs</p>
+        <i>Enter one of the following PINs to get started:</i>
         <ul>
           <li>1111 - John Doe - $10.00</li>
           <li>2222 - Jane Smith - $53.21</li>
@@ -37,16 +38,16 @@ export const HelpModal = () => {
           <li>4444 - Bob Brown - $9,999.99</li>
           <li>5555 - Charlie Davis - $0.01</li>
         </ul>
-        <p className="font-semibold mt-4">About the project:</p>
+        <p className="font-semibold mt-4">About the project</p>
         <p>
           This is a simple ATM machine that allows you to withdraw and deposit
           money.
         </p>
         <p className="mt-2">
-          The project is built with React and Express. The React frontend is
-          built with Vite. The Express backend is built with Express. The data
-          (funds) is held in memory and is the same for all users. You can reset
-          the data to its default values by clicking the reset button.
+          The frontend is built with React and the REST backend is built with
+          Node/Express. The data (funds) is held in memory and is the same for
+          all users. You can reset the data to its default values by clicking
+          the reset button in the top right corner.
         </p>
         <p className="mt-2">
           The data is reset every day at 6:00 AM UTC via a cron job.
